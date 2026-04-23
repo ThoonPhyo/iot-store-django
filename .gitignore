@@ -8,3 +8,4 @@ venv/
 # Database & Media
 db.sqlite3
 media/
+notes.txt
