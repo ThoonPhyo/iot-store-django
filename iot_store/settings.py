@@ -25,8 +25,13 @@ SECRET_KEY = 'django-insecure-s!(+dj#$9@ukzr30l#p!ffmhp))dxa58-qp_f0^sto-&akmok0
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+# iot_store/settings.py
 
+ALLOWED_HOSTS = [
+    'salaried-licorice-lived.ngrok-free.dev', # ဒီ link အသစ်လေးကို ထည့်ပေးပါ
+    'localhost',
+    '127.0.0.1',
+]
 
 # Application definition
 

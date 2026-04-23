@@ -33,3 +33,6 @@ python manage.py createsuperuser
 python manage.py runserver
 
 # URL: http://127.0.0.1:8000/
+
+
+.\ngrok.exe http 8000
