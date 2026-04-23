@@ -1,0 +1,257 @@
+{% load static %}
+
+<!-- brands section -->
+<div class="container text-center py-5 border-top mt-5">
+  <h6
+    class="text-uppercase fw-bold text-muted mb-5"
+    style="letter-spacing: 2px"
+  >
+    Our Trusted Brands
+  </h6>
+
+  <div class="row justify-content-center align-items-center g-5">
+    <div class="col-lg-2 col-md-4 col-sm-6">
+      <img
+        src="{% static 'images/raspberry-pi.svg' %}"
+        class="brand-icon"
+        alt="Raspberry Pi"
+      />
+    </div>
+    <div class="col-lg-2 col-md-4 col-sm-6">
+      <img
+        src="{% static 'images/arduino.svg' %}"
+        class="brand-icon"
+        alt="Arduino"
+      />
+    </div>
+    <div class="col-lg-2 col-md-4 col-sm-6">
+      <img
+        src="{% static 'images/espressif-systems.svg' %}"
+        class="brand-icon"
+        alt="Espressif"
+      />
+    </div>
+    <div class="col-lg-2 col-md-4 col-sm-6">
+      <img
+        src="{% static 'images/lazada-1.svg' %}"
+        class="brand-icon"
+        alt="Lazada"
+      />
+    </div>
+    <div class="col-lg-2 col-md-4 col-sm-6">
+      <img
+        src="{% static 'images/shopee-logo.svg' %}"
+        class="brand-icon"
+        alt="Shopee"
+      />
+    </div>
+  </div>
+</div>
+
+<div
+  class="container my-5 px-0 bg-light rounded-3 text-center get-updates-section"
+>
+  <div class="card border-0">
+    <img
+      src="{% static 'images/get-upadate-bg.jpg' %}"
+      class="card-img rounded-3"
+      alt="Updates Background"
+      style="height: 450px; object-fit: cover; filter: brightness(0.85)"
+    />
+    <div class="card-img-overlay d-flex align-items-center">
+      <div class="container px-md-5">
+        <div class="row">
+          <div class="col-12 col-md-8 col-lg-6 text-white text-start">
+            <div class="h-100 p-0 rounded-3 ms-3 text-dark">
+              <h2 class="fw-bold">Get Our Updates</h2>
+              <p class="text-muted">
+                Subscribe to our newsletter for the latest product updates,
+                exclusive offers, and tech insights delivered straight to your
+                inbox.
+              </p>
+              <form action="#">
+                <div class="input-group mb-3">
+                  <input
+                    type="email"
+                    class="form-control rounded-3"
+                    placeholder="Enter your email here.."
+                    aria-label="Subscriber's email"
+                    required
+                  />
+                </div>
+                <button
+                  type="submit"
+                  class="btn btn-lg fw-bold px-4 py-2 text-white shadow-sm"
+                  style="background-color: #fe624b; border-radius: 10px"
+                >
+                  Subscribe Now
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <footer class="row row-cols-1 row-cols-sm-2 row-cols-md-5 py-5">
+    <div class="col-md-3 text-center text-md-start">
+      <a
+        href="{% url 'index' %}"
+        class="d-flex align-items-center justify-content-center justify-content-md-start mb-4 link-body-emphasis text-decoration-none"
+      >
+        <lord-icon
+          class="me-1"
+          src="https://cdn.lordicon.com/fmsilsqx.json"
+          trigger="loop"
+          delay="2000"
+          colors="primary:#000000"
+          style="width: 50px; height: 40px"
+        >
+        </lord-icon>
+        <span class="fs-4 fw-bold">IOT-Store</span>
+      </a>
+
+      <div class="mb-4 mb-md-0">
+        <h5 class="fw-bold mb-3">Payment Methods</h5>
+        <div
+          class="d-flex flex-wrap justify-content-center justify-content-md-start gap-2"
+        >
+          <a href="#"
+            ><img
+              src="{% static 'images/Wave_Money.svg' %}"
+              class="img-fluid"
+              alt="Wave Money"
+              style="max-height: 30px; object-fit: contain"
+          /></a>
+          <a href="#"
+            ><img
+              src="{% static 'images/ayapay.png' %}"
+              class="img-fluid"
+              alt="AYA Pay"
+              style="max-height: 30px; object-fit: contain"
+          /></a>
+          <a href="#"
+            ><img
+              src="{% static 'images/kbzpay.png' %}"
+              class="img-fluid"
+              alt="KBZ Pay"
+              style="max-height: 30px; object-fit: contain"
+          /></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-1 d-none d-md-block"></div>
+
+    <div class="col mb-3 text-center text-md-start">
+      <h5 class="footer-heading fw-bold">Quick Links</h5>
+      <ul class="nav flex-column">
+        <li class="nav-item mb-2">
+          <a href="#" class="nav-link p-0 text-body-secondary">Home</a>
+        </li>
+        <li class="nav-item mb-2">
+          <a href="#" class="nav-link p-0 text-body-secondary">Shop All</a>
+        </li>
+        <li class="nav-item mb-2">
+          <a href="#" class="nav-link p-0 text-body-secondary">About Us</a>
+        </li>
+        <li class="nav-item mb-2">
+          <a href="#" class="nav-link p-0 text-body-secondary">Contact</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="col mb-3 text-center text-md-start">
+      <h5 class="footer-heading fw-bold">Categories</h5>
+      <ul class="nav flex-column">
+        <li class="nav-item mb-2">
+          <a href="#" class="nav-link p-0 text-body-secondary"
+            >Microcontrollers</a
+          >
+        </li>
+        <li class="nav-item mb-2">
+          <a href="#" class="nav-link p-0 text-body-secondary"
+            >Sensors & Modules</a
+          >
+        </li>
+        <li class="nav-item mb-2">
+          <a href="#" class="nav-link p-0 text-body-secondary"
+            >Power Supplies</a
+          >
+        </li>
+        <li class="nav-item mb-2">
+          <a href="#" class="nav-link p-0 text-body-secondary">Accessories</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="col mb-3 text-center text-md-start">
+      <h5 class="footer-heading fw-bold">Customer Support</h5>
+      <ul class="nav flex-column">
+        <li class="nav-item mb-2">
+          <a href="#" class="nav-link p-0 text-body-secondary">FAQ & Help</a>
+        </li>
+        <li class="nav-item mb-2">
+          <a href="#" class="nav-link p-0 text-body-secondary"
+            >Shipping Policy</a
+          >
+        </li>
+        <li class="nav-item mb-2">
+          <a href="#" class="nav-link p-0 text-body-secondary"
+            >Returns & Refunds</a
+          >
+        </li>
+        <li class="nav-item mb-2">
+          <a href="#" class="nav-link p-0 text-body-secondary">Track Order</a>
+        </li>
+      </ul>
+    </div>
+  </footer>
+
+  <div
+    class="d-flex flex-column flex-md-row justify-content-between py-2 my-4 border-top align-items-center"
+  >
+    <div class="col-md-4 d-flex align-items-center">
+      <span class="mb-3 mb-md-0 text-body-secondary"
+        >© 2026 IOT-Store. All rights reserved.</span
+      >
+    </div>
+
+    <div class="d-flex flex-wrap gap-4 justify-content-center">
+      <div class="d-flex align-items-center">
+        <i class="bi bi-telephone-fill me-2" style="color: #fe624b"></i>
+        <small class="text-body-secondary">+95 9 123 456 789</small>
+      </div>
+      <div class="d-flex align-items-center">
+        <i class="bi bi-envelope-fill me-2" style="color: #fe624b"></i>
+        <small class="text-body-secondary">iotstore@email.com</small>
+      </div>
+    </div>
+
+    <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+      <li class="ms-3">
+        <a class="text-body-secondary fs-5" href="#"
+          ><i class="bi bi-facebook"></i
+        ></a>
+      </li>
+      <li class="ms-3">
+        <a class="text-body-secondary fs-5" href="#"
+          ><i class="bi bi-instagram"></i
+        ></a>
+      </li>
+      <li class="ms-3">
+        <a class="text-body-secondary fs-5" href="#"
+          ><i class="bi bi-messenger"></i
+        ></a>
+      </li>
+      <li class="ms-3">
+        <a class="text-body-secondary fs-5" href="#"
+          ><i class="bi bi-tiktok"></i
+        ></a>
+      </li>
+    </ul>
+  </div>
+</div>

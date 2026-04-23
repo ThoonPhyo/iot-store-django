@@ -1,0 +1,38 @@
+=> if you register in admin.py
+    : you will see models.py info in admin page
+
+=> to run , go to python 12. version and built venv
+
+=>py -3.12 -m venv venv
+=>.\venv\Scripts\activate
+=>python --version
+=>python -m pip install django Pillow
+=> .\venv\Scripts\python.exe -m pip install Pillow django
+
+
+
+Collectstatic လုပ်ရန် လိုအပ်ခြင်း (သို့မဟုတ်) Server Restart
+အကယ်၍ သင်က DEBUG = True နဲ့ စမ်းနေတာမဟုတ်ဘဲ Production (သို့မဟုတ်) settings အချို့ ပြောင်းထားတယ်ဆိုရင် Django က static file အပြောင်းအလဲကို ချက်ချင်း မသိနိုင်ပါဘူး။
+
+ဖြေရှင်းနည်း အဆင့်ဆင့်:
+
+Server ကို အရင်ပိတ်ပါ: Terminal မှာ Ctrl + C နှိပ်ပါ။
+
+Collectstatic လုပ်ပါ (သေချာအောင်):
+
+Bash
+python manage.py collectstatic
+(ဒါကို လုပ်လိုက်ရင် Django က static ဖိုင်အားလုံးကို စုစည်းပေးသွားမှာပါ။ "Yes" လို့ နှိပ်ပေးလိုက်ပါ)
+
+Server ပြန်ဖွင့်ပါ:
+
+Bash
+python manage.py runserver
+၃။ File ကို မှားပြင်နေတာလား? (နောက်ဆုံး စစ်ဆေးချက်)
+ဒါကလည်း အဖြစ်များပါတယ်။
+
+သင့်ရဲ့ Editor (VS Code) မှာ style.css ကို ဖွင့်ပါ။
+
+အထဲမှာ .checkout-btn ကုဒ် ပါနေတာ သေချာပြီဆိုရင် Ctrl + S ကို အထပ်ထပ် နှိပ်ပြီး Save လုပ်ပါ။
+
+ပြီးရင် ခုနက Browser က Page Source (Ctrl + U) ထဲက CSS link ကို နှိပ်ပြီး Ctrl + F5 ကို ဇတ်တိုက် နှိပ်ပါ။

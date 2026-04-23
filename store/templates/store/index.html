@@ -1,0 +1,288 @@
+{% extends 'store/base.html' %}
+ {% load static %}
+  {% block content %}
+   {% include 'store/header.html' %}
+
+<!-- hero section -->
+<div class="container my-4">
+  <div
+    id="carouselExampleAutoplaying"
+    class="carousel slide"
+    data-bs-ride="carousel"
+  >
+    <div class="carousel-inner">
+      <div class="carousel-item active" data-bs-interval="2000">
+        <div class="card border-0">
+          <img
+            src="{% static 'images/hero_img.png' %}"
+            class="card-img rounded-3"
+            alt="Hero Image"
+            style="height: 450px; object-fit: cover; filter: brightness(0.85)"
+          />
+          <div class="card-img-overlay d-flex align-items-center">
+            <div class="container px-md-5">
+              <div class="row">
+                <div class="col-12 col-md-8 col-lg-6 text-white">
+                  <div class="card-body px-3 px-md-5 px-lg-0 px-xl-5">
+                    <h2 class="display-5 fw-bold mb-3">
+                      Your One-Stop Electronic Market
+                    </h2>
+                    <p class="lead mb-4 d-none d-sm-block">
+                      Welcome to e-shop, a place where you can buy everything
+                      about electronics.
+                    </p>
+                    <button
+                      class="btn btn-lg fw-bold px-4 py-2 text-white shadow-sm"
+                      style="background-color: #fe624b; border-radius: 10px"
+                    >
+                      Shop Now
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item" data-bs-interval="2000">
+        <div class="card border-0">
+          <img
+            src="{% static 'images/esp32-s31-banner.png' %}"
+            class="card-img rounded-3"
+            alt="IoT Banner"
+            style="height: 450px; object-fit: cover; filter: brightness(0.85)"
+          />
+          <div class="card-img-overlay d-flex align-items-center">
+            <div class="container px-md-5 text-white">
+              <h2 class="display-5 fw-bold mb-3">IoT Developer Essentials</h2>
+              <p class="lead mb-4">
+                Upgrade your projects with our premium ESP32-S3 boards.
+              </p>
+              <button
+                class="btn btn-lg fw-bold px-4 py-2 text-white shadow-sm"
+                style="background-color: #fe624b; border-radius: 10px"
+              >
+                View Components
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- features section -->
+<div class="container">
+  <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4 py-5">
+    <div class="col d-flex align-items-center gap-3">
+      <i class="bi bi-headset fs-1" style="color: #fe624b"></i>
+      <div>
+        <h3 class="fw-bold mb-0 fs-5">Responsive</h3>
+        <p class="text-muted mb-0" style="font-size: 0.8rem">
+          Customer service 24/7
+        </p>
+      </div>
+    </div>
+    <div class="col d-flex align-items-center gap-3">
+      <i class="bi bi-shield-check fs-1" style="color: #fe624b"></i>
+      <div>
+        <h3 class="fw-bold mb-0 fs-5">Secure</h3>
+        <p class="text-muted mb-0" style="font-size: 0.8rem">
+          Certified since 2017
+        </p>
+      </div>
+    </div>
+    <div class="col d-flex align-items-center gap-3">
+      <i class="bi bi-truck fs-1" style="color: #fe624b"></i>
+      <div>
+        <h3 class="fw-bold mb-0 fs-5">Shipping</h3>
+        <p class="text-muted mb-0" style="font-size: 0.8rem">
+          Fast and Reliable
+        </p>
+      </div>
+    </div>
+    <div class="col d-flex align-items-center gap-3">
+      <i class="bi bi-arrow-repeat fs-1" style="color: #fe624b"></i>
+      <div>
+        <h3 class="fw-bold mb-0 fs-5">Transparent</h3>
+        <p class="text-muted mb-0" style="font-size: 0.8rem">
+          Hassle-free returns
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- new arrivals section -->
+<div id="new-arrivals" class="container py-5 new-arrivals-section">
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h3 class="fw-bold">New Arrivals</h3>
+    <a
+      href="#main-products-list"
+      class="text-decoration-none text-danger fw-bold"
+      >View All &rarr;</a
+    >
+  </div>
+
+  <div
+    id="new-arrivals-list"
+    class="d-flex flex-nowrap overflow-x-auto gap-4 custom-scrollbar products-section py-4 my-n4"
+    style="scrollbar-width: thin"
+  >
+    {% for product in new_arrivals %}
+
+    <div
+      class="col-10 col-md-4 col-lg-2 flex-shrink-0 product-item"
+      data-category="{{ product.product_type }}"
+    >
+      <div class="card h-100 border-0 shadow position-relative card-hover">
+        <span
+          class="position-absolute top-0 end-0 m-2 badge rounded-2 shadow-sm p-2"
+          style="z-index: 2; background-color: #fe624b"
+        >
+          NEW
+        </span>
+
+        <div class="bg-light rounded-top text-center p-3">
+          {% if product.image %}
+          <img
+            src="{{ product.image.url }}"
+            class="img-fluid"
+            alt="{{ product.name }}"
+            style="height: 160px; object-fit: contain"
+          />
+          {% else %}
+          <img
+            src="https://via.placeholder.com/160"
+            class="img-fluid"
+            alt="No Image"
+          />
+          {% endif %}
+        </div>
+
+        <div class="card-body d-flex flex-column">
+          <small class="text-secondary mb-1"
+            >{{ product.get_product_type_display }}</small
+          >
+          <h6 class="card-title fw-bold text-dark mb-2">{{ product.name }}</h6>
+
+          <p
+            class="card-text text-muted mb-3 text-truncate"
+            style="font-size: 0.85rem"
+          >
+            {{ product.description }}
+          </p>
+
+          <div class="mt-auto">
+            <div class="d-flex align-items-center justify-content-between">
+              <h5 class="text-danger fw-bold mb-0">{{ product.price }} ks</h5>
+              <a
+                href="{% url 'add_to_cart' product.id %}"
+                class="btn btn-outline-dark btn-sm rounded-circle btn-cart-circle"
+              >
+                <i class="bi bi-cart-plus"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {% empty %}
+    <div class="col-12 text-center py-4">
+      <p class="text-muted mb-0">လောလောဆယ် ပစ္စည်းအသစ် မရှိသေးပါ။</p>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+<!-- Our Products Section -->
+<div class="container py-5 best-sellers-section">
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h3 class="fw-bold">Our Products</h3>
+    <a href="#" class="text-decoration-none text-danger fw-bold"
+      >View All &rarr;</a
+    >
+  </div>
+
+  <div
+    id="products-list"
+    class="d-flex flex-nowrap overflow-x-auto gap-4 custom-scrollbar products-section py-4 my-n4"
+    style="scrollbar-width: thin"
+  >
+    {% for product in products %}
+    <div
+      class="col-10 col-md-4 col-lg-2 flex-shrink-0 product-item"
+      data-category="{{ product.product_type }}"
+    >
+      <div class="card h-100 border-0 shadow position-relative card-hover">
+        <!-- badge -->
+        {% if product.label != 'none' %}
+        <span
+          class="position-absolute top-0 end-0 m-2 badge rounded-2 shadow-sm p-2"
+          style="z-index: 2; background-color: #fe624b"
+        >
+          {% if product.label == 'new' %} NEW
+          {% elif product.label == 'off'%}50% OFF
+          {% elif product.label == 'limited' %} LIMITED
+          {% elif product.label == 'out' %} OUT OF STOCK
+          {% endif %}
+        </span>
+        {% endif %}
+
+        <div class="bg-light rounded-top text-center p-3">
+          {% if product.image %}
+          <img
+            src="{{ product.image.url }}"
+            class="img-fluid"
+            alt="{{ product.name }}"
+            style="height: 160px; object-fit: contain"
+          />
+          {% else %}
+          <img
+            src="https://via.placeholder.com/160"
+            class="img-fluid"
+            alt="No Image"
+          />
+          {% endif %}
+        </div>
+
+        <div class="card-body d-flex flex-column">
+          <small class="text-secondary mb-1"
+            >{{ product.get_product_type_display }}</small
+          >
+          <!-- product.product_type က ရှေ့က value ဖြစ်တဲ့ modules (စာလုံးအသေး) ကို ထုတ်ပေးပါတယ်။
+               product.get_product_type_display က နောက်က value ဖြစ်တဲ့ Modules (စာလုံးအကြီး၊ လူကြည့်ဖို့ပုံစံ) ကို ထုတ်ပေးပါတယ်။ -->
+          <h6 class="card-title fw-bold text-dark mb-2">{{ product.name }}</h6>
+
+          <p
+            class="card-text text-muted mb-3 text-truncate"
+            style="font-size: 0.85rem"
+          >
+            {{ product.description }}
+          </p>
+
+          <div class="mt-auto">
+            <div class="d-flex align-items-center justify-content-between">
+              <h5 class="text-danger fw-bold mb-0">{{ product.price }} ks</h5>
+             <a
+                href="{% url 'add_to_cart' product.id %}"
+                class="btn btn-outline-dark btn-sm rounded-circle btn-cart-circle"
+              >
+                <i class="bi bi-cart-plus"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% empty %}
+    <p>No products found.</p>
+    {% endfor %}
+  </div>
+</div>
+
+{% include 'store/bestsellers.html' %}
+ {% include 'store/footer.html' %}
+{%endblock %}

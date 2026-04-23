@@ -1,0 +1,274 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  /* Inter ကို Main font အဖြစ်သုံးမယ်၊ အကယ်၍ Load မတက်ရင် standard sans-serif ကို သုံးမယ် */
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  -webkit-font-smoothing: antialiased; /* စာသားတွေကို ပိုကြည်လင်စေတယ် */
+  color: #1a1a1a; /* Pure Black ထက်စာရင် Dark Grey က ဖတ်ရတာ ပိုသက်သာတယ် */
+}
+
+header {
+  /* Option 1 ကို ဥပမာအနေနဲ့ သုံးပြမယ် */
+  background: linear-gradient(180deg, #ffffff 0%, #f8f9fa 100%);
+  border-bottom: 1px solid #e0e0e0; /* မျဉ်းတားလေးပါမှ Header က ပြတ်ပြတ်သားသား ရှိမှာ */
+  padding: 15px 0; /* Header ကို နည်းနည်း ပိုကျယ်စေပြီး အသက်ရှူချောင်စေတယ် */
+}
+
+header .btn-outline-dark {
+  border: 1px solid #212529 !important; /* Dark color border */
+  background-color: transparent !important; /* နောက်ခံအရောင်မပြောင်းချင်ရင် */
+  color: #212529 !important; /* Icon အရောင်ကို အမည်းထားမယ် */
+}
+
+header .dropdown-toggle::after {
+  display: none !important;
+}
+header .custom-scroll::-webkit-scrollbar {
+  width: 4px;
+}
+header .custom-scroll::-webkit-scrollbar-thumb {
+  background: #eee;
+  border-radius: 10px;
+}
+
+/* Checkout Button Base Style */
+.btn.checkout-btn {
+  background-color: #fe624b !important;
+  color: white !important;
+  border: none !important;
+  padding: 12px !important;
+  position: relative;
+  overflow: hidden; /* အပြင်ထွက်နေတဲ့ icon ကို ဖျောက်ထားဖို့ */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-weight: bold !important;
+  transition: all 0.3s ease !important;
+}
+
+/* Icon ရဲ့ ပုံမှန် အခြေအနေ (ဖျောက်ထားမယ်) */
+.checkout-icon {
+  opacity: 0;
+  transform: translateX(-20px); /* ဘယ်ဘက်ကို ၂၀ px ရွှေ့ထားမယ် */
+  transition: all 0.3s ease-in-out;
+}
+
+/* Hover လုပ်တဲ့အခါ Icon ရော အရောင်ရော ပြောင်းမယ် */
+.btn.checkout-btn:hover {
+  background-color: #22e362 !important; /* အစိမ်းရောင်ပြောင်းမယ် */
+  padding-left: 15px !important; /* Icon ထွက်လာဖို့ နေရာချန်တာ */
+}
+
+.btn.checkout-btn:hover .checkout-icon {
+  opacity: 1;
+  transform: translateX(0); /* မူလနေရာကို ပြန်လာမယ် */
+}
+
+/* စာသားကိုလည်း Hover လုပ်ရင် နည်းနည်းလေး ညာဘက်ရွှေ့ချင်ရင် (Optional) */
+.btn.checkout-btn:hover .btn-text {
+  transform: translateX(-5px);
+  transition: all 0.3s ease;
+}
+
+/* nav lougout icon */
+/* အပေါ်က class တစ်ခုခုကို ရှေ့က ခံရေးခြင်းဖြင့် ပိုပြီး အားသာစေပါတယ် */
+.text-start .logout-link-btn {
+  background: none !important; /* !important ကို လိုအပ်ရင် သုံးနိုင်ပါတယ် */
+  border: none !important;
+  padding: 0;
+  font: inherit;
+  color: #212529;
+  cursor: pointer;
+  font-weight: bold;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  transition:
+    color 0.2s ease-in-out,
+    transform 0.2s ease;
+}
+
+.text-start .logout-link-btn:hover {
+  color: #fe624b !important;
+  transform: translateX(3px);
+}
+
+.navbar .nav-item {
+  font-weight: bold;
+  color: #ffffff !important;
+}
+
+/* products section */
+.best-sellers-section,
+.featured-products-section,
+.new-arrivals-section {
+  background-color: #f8f9fa;
+  border-radius: 15px; /* ပိုဝိုင်းတာက ပို modern ဖြစ်ပါတယ် */
+  padding: 40px 20px; /* အပေါ်အောက် ပိုကျယ်ပေးပါ */
+  margin-bottom: 50px;
+  /* Section မှာ shadow ဖြုတ်လိုက်ပါ၊ card မှာပဲ ထားတာ ပို premium ဆန်တယ် */
+  box-shadow: none !important;
+}
+
+.products-section .card {
+  background-color: #ffffff;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05) !important;
+
+  /* ADD THESE TWO LINES */
+  border: 1px solid transparent !important; /* Pre-size the card so it doesn't grow on hover */
+  backface-visibility: hidden; /* Helps smooth out the movement */
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border 0.3s ease;
+}
+
+.products-section .card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 14px rgba(235, 76, 8, 0.3) !important;
+  border: 1px solid #fe624b !important; /* Now this only changes COLOR, not SIZE */
+}
+
+/* ပုံလေး ချဲ့ဖို့ (Optional) */
+.products-section .card:hover img {
+  transform: scale(1.05);
+  transition: transform 0.3s ease;
+}
+
+.btn-cart-circle {
+  border: 1px solid #fe624b !important;
+  color: #fe624b !important;
+  width: 38px; /* ၃၅ ထက် ၃၈ က လက်ဗွေနဲ့ နှိပ်ရတာ ပိုအဆင်ပြေပါတယ် */
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border-radius: 50%; /* ဝိုင်းနေဖို့ သေချာအောင် ထည့်ထားပါ */
+  background-color: transparent;
+
+  /* Transition ကို ဒီမှာထားပါ - ဒါမှ အသွားအပြန် ချောမွေ့မှာပါ */
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-cart-circle:hover {
+  background-color: #fe624b !important;
+  color: #ffffff !important;
+  transform: scale(1.1); /* Hover လုပ်ရင် နည်းနည်းလေး ကြီးလာတာက ပိုလှပါတယ် */
+  box-shadow: 0 4px 10px rgba(254, 98, 75, 0.3); /* အရိပ်ပါးပါးလေး ထည့်ပါ */
+}
+
+/* brands section */
+.brand-icon {
+  /* Height ကို တစ်သမတ်တည်းဖြစ်အောင် ညှိပါတယ် */
+  height: 45px;
+  width: auto;
+  max-width: 120px;
+  object-fit: contain; /* ပုံမပြဲသွားစေဖို့ အရေးကြီးပါတယ် */
+
+  /* 100% grayscale က hover လုပ်တဲ့အခါ ပိုသိသာစေပါတယ် */
+  filter: grayscale(100%);
+  opacity: 0.5;
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.brand-icon:hover {
+  filter: grayscale(0%);
+  opacity: 1;
+  transform: scale(1.15); /* နည်းနည်းလေး ပိုကြီးစေရင် ပိုလှပါတယ် */
+}
+
+/* get updates section */
+
+.get-updates-section .form-control {
+  height: 60px; /* ပိုကြီးတဲ့ input field */
+  border: 1px solid darkgrey; /* နူးညံ့တဲ့ အရောင်နဲ့ အနည်းငယ်ထူတဲ့ border */
+  border-radius: 25px; /* ပိုဝိုင်းတာက ပိုလှပါတယ် */
+  padding: 10px 20px; /* အတွင်း padding ကို ပိုကျယ်စေပြီး အသက်ရှူချောင်စေတယ် */
+  transition: all 0.3s ease;
+}
+
+/* footer section */
+.social-hover {
+  display: inline-block; /* Transform အလုပ်လုပ်ဖို့ ဒါပါရပါမယ် */
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* ချောမွေ့တဲ့ Bounce effect */
+  color: #6c757d !important; /* မူရင်းအရောင် မီးခိုးရောင် */
+}
+
+.social-hover:hover {
+  color: #fe624b !important; /* သင့်ရဲ့ Theme Color */
+  transform: scale(1.2) translateY(-1px); /* နည်းနည်းကြီးလာပြီး အပေါ်တက်သွားမယ် */
+}
+
+/* news */
+/* Card Hover Effect */
+.card-hover {
+  /* transition ကို 0.3 စက္ကန့်ထားပေးမှ ကြွတက်တာ ညင်သာမှာပါ */
+  transition:
+    transform 0.3s ease-in-out,
+    box-shadow 0.3s ease-in-out !important;
+}
+
+.card-hover:hover {
+  /* အပေါ်ကို 10px ကြွတက်လာစေဖို့ */
+  transform: translateY(-10px) !important;
+  /* အရိပ် (Shadow) ပိုထွက်လာအောင် လုပ်ပေးတာပါ */
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2) !important;
+  cursor: pointer;
+}
+
+.checkout-section {
+  background-color: #f8f9fa;
+  border-radius: 15px; /* ပိုဝိုင်းတာက ပို modern ဖြစ်ပါတယ် */
+  padding: 40px 20px; /* အပေါ်အောက် ပိုကျယ်ပေးပါ */
+  margin-bottom: 50px;
+}
+
+/* Container focus */
+.checkout-section .custom-scroll {
+  scrollbar-width: thin; /* Firefox အတွက် */
+  scrollbar-color: #ccc transparent; /* Firefox အတွက် (thumb color, track color) */
+}
+
+/* Chrome, Safari, Edge အတွက် */
+.checkout-section .custom-scroll::-webkit-scrollbar {
+  width: 4px;
+}
+
+.checkout-section .checkout-summary.custom-scroll::-webkit-scrollbar-thumb {
+  background: #ccc; /* နည်းနည်းပိုမြင်သာအောင် #ccc ပြောင်းထားပါတယ် */
+  border-radius: 10px;
+}
+
+.checkout-section .checkout-summary .custom-scroll::-webkit-scrollbar-track {
+  background: transparent; /* Track ကို ကြည်နေအောင် ထားတာပါ */
+}
+
+.checkout-form .form-control:focus {
+  border-color: #fe624b !important; /* Focus ဖြစ်တဲ့အခါ အနီရောင် border */
+  box-shadow: 0 0 5px rgba(254, 98, 75, 0.5) !important; /* နည်းနည်းအရိပ်ထွက်လာအောင် */
+}
+
+.checkout-form button[type="submit"] {
+  background-color: #fe624b !important;
+  color: white !important;
+  border: none !important;
+  padding: 12px 20px !important;
+
+  font-weight: bold !important;
+  transition: all 0.3s ease !important;
+}
+
+.checkout-form button[type="submit"]:hover {
+  background-color: #22e362 !important;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(34, 227, 98, 0.3);
+}

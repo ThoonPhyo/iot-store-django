@@ -1,0 +1,254 @@
+{% extends 'store/base.html' %} 
+{% block content %} 
+{% include 'store/header.html' %}
+<div class="container">
+  <main class="p-4 m-4 rounded-3 shadow-sm checkout-section">
+    <div class="py-5 text-center">
+      <h1 class="h2 fw-bold">Checkout form</h1>
+      <p class="lead text-muted">
+        Plese fill in the form below to complete your order. We will contact you
+      </p>
+    </div>
+
+    <div class="row g-5">
+      <div class="col-md-5 col-lg-4 order-md-last mb-4 checkout-summary">
+        <h4 class="d-flex justify-content-between align-items-center mb-3">
+          <span class="text-primary fw-bold">Your cart</span>
+          <span class="badge bg-primary rounded-pill"
+            >{{ total_quantity }}</span
+          >
+        </h4>
+
+        <div
+          class="card shadow-sm p-2 p-md-3 border-0"
+          style="border-radius: 15px"
+        >
+          <div
+            class="custom-scroll"
+            style="max-height: 400px; overflow-y: auto; overflow-x: hidden"
+          >
+            {% if cart_items %} {% for item in cart_items %}
+            <div class="d-flex align-items-center py-2 border-bottom">
+              <img
+                src="{{ item.product.image.url }}"
+                style="width: 45px; height: 45px; object-fit: cover"
+                class="rounded me-2 me-md-3 flex-shrink-0"
+              />
+
+              <div class="flex-grow-1 overflow-hidden pe-2">
+                <p class="mb-0 fw-bold text-truncate" style="font-size: 0.9rem">
+                  {{ item.product.name }}
+                </p>
+                <small class="text-muted" style="font-size: 0.8rem">
+                  {{ item.quantity }} x {{ item.product.price }} Ks
+                </small>
+              </div>
+
+              <div
+                class="fw-bold text-muted flex-shrink-0 text-end"
+                style="font-size: 0.9rem"
+              >
+                {{ item.subtotal|default:0 }} Ks
+              </div>
+            </div>
+            {% endfor %} {% else %}
+            <div class="text-center py-4 text-muted">
+              <i
+                class="fa-solid fa-cart-shopping d-block mb-2 fs-3 opacity-25"
+              ></i>
+              <small>No items in cart</small>
+            </div>
+            {% endif %}
+          </div>
+
+          <div class="pt-3 mt-1 px-1">
+            <div class="d-flex justify-content-between fw-bold fs-5">
+              <span>Total:</span>
+              <span class="text-danger">{{ cart_total }} Ks</span>
+            </div>
+          </div>
+        </div>
+
+        <form
+          class="card p-2 mt-3 border-0 shadow-sm"
+          style="border-radius: 10px"
+        >
+          <div class="input-group">
+            <input
+              type="text"
+              class="form-control border-0 bg-light"
+              placeholder="Promo code"
+            />
+            <button type="submit" class="btn btn-secondary shadow-none">
+              Redeem
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <div class="col-md-7 col-lg-8 checkout-form">
+        <h4 class="mb-3 fw-bold">Shipping Address</h4>
+        <form class="needs-validation" novalidate action="#" method="POST">
+          {% csrf_token %}
+          <div class="row g-3">
+            <div class="col-sm-6">
+              <label for="firstName" class="form-label">First name</label>
+              <input
+                type="text"
+                class="form-control"
+                id="firstName"
+                placeholder=""
+                value="{{ request.user.first_name }}"
+                required
+              />
+            </div>
+
+            <div class="col-sm-6">
+              <label for="lastName" class="form-label">Last name</label>
+              <input
+                type="text"
+                class="form-control"
+                id="lastName"
+                placeholder=""
+                value="{{ request.user.last_name }}"
+                required
+              />
+            </div>
+
+            <div class="col-12">
+              <label for="telephone" class="form-label">Telephone</label>
+              <input
+                type="tel"
+                class="form-control"
+                id="telephone"
+                placeholder="09 XXX XXX XXX"
+                value="{{ request.user.telephone }}"
+              />
+            </div>
+
+            <div class="col-12">
+              <label for="address" class="form-label">Address</label>
+              <input
+                type="text"
+                class="form-control"
+                id="address"
+                placeholder="ရန်ကုန်၊ မန္တလေး..."
+                required
+              />
+            </div>
+
+            <div class="col-md-5">
+              <label for="country" class="form-label">Country</label>
+              <select class="form-select" id="country" required>
+                <option value="">Choose...</option>
+                <option selected>Myanmar</option>
+              </select>
+            </div>
+
+            <div class="col-md-4">
+              <label for="state" class="form-label">City/State</label>
+              <select class="form-select" id="state" required>
+                <option value="">Choose...</option>
+                <option>Yangon</option>
+                <option>Mandalay</option>
+                <option>Naypyidaw</option>
+              </select>
+            </div>
+
+            <div class="col-md-3">
+              <label for="zip" class="form-label">Zip</label>
+              <input type="text" class="form-control" id="zip" required />
+            </div>
+          </div>
+
+          <hr class="my-4" />
+
+          <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="same-address" />
+            <label class="form-check-label" for="same-address"
+              >Shipping address is the same as my billing address</label
+            >
+          </div>
+
+          <hr class="my-4" />
+
+          <h4 class="mb-3 fw-bold">Payment Method</h4>
+          <div class="my-3">
+            <div class="form-check">
+              <input
+                id="kpay"
+                name="paymentMethod"
+                type="radio"
+                class="form-check-input"
+                checked
+                required
+              />
+              <label class="form-check-label" for="kpay">K-Pay / WavePay</label>
+            </div>
+            <div class="form-check">
+              <input
+                id="cod"
+                name="paymentMethod"
+                type="radio"
+                class="form-check-input"
+                required
+              />
+              <label class="form-check-label" for="cod">Cash on Delivery</label>
+            </div>
+          </div>
+
+          <hr class="my-4" />
+          <button class="w-100 btn btn-primary btn-lg mb-5" type="submit">
+            Place Order
+          </button>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <!-- footer -->
+  <div
+    class="d-flex flex-column flex-md-row justify-content-between py-2 my-4 border-top align-items-center"
+  >
+    <div class="col-md-4 d-flex align-items-center">
+      <span class="text-body-secondary small"
+        >© 2026 IOT-Store. All rights reserved.</span
+      >
+    </div>
+
+    <div class="d-flex flex-wrap gap-4 justify-content-center my-3 my-md-0">
+      <div class="d-flex align-items-center">
+        <i class="bi bi-telephone-fill me-2" style="color: #fe624b"></i>
+        <small class="text-body-secondary">+95 9 123 456 789</small>
+      </div>
+      <div class="d-flex align-items-center">
+        <i class="bi bi-envelope-fill me-2" style="color: #fe624b"></i>
+        <small class="text-body-secondary">iotstore@email.com</small>
+      </div>
+    </div>
+
+    <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+      <li class="ms-3">
+        <a class="text-body-secondary fs-5" href="#"
+          ><i class="bi bi-facebook"></i
+        ></a>
+      </li>
+      <li class="ms-3">
+        <a class="text-body-secondary fs-5" href="#"
+          ><i class="bi bi-instagram"></i
+        ></a>
+      </li>
+      <li class="ms-3">
+        <a class="text-body-secondary fs-5" href="#"
+          ><i class="bi bi-messenger"></i
+        ></a>
+      </li>
+      <li class="ms-3">
+        <a class="text-body-secondary fs-5" href="#"
+          ><i class="bi bi-tiktok"></i
+        ></a>
+      </li>
+    </ul>
+  </div>
+</div>
+{% endblock %}

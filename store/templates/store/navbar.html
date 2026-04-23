@@ -1,0 +1,162 @@
+{% load static %}
+<!-- nav bar -->
+<nav
+  class="navbar navbar-expand-lg shadow-sm text-white"
+  style="background-color: #fe624b"
+  data-bs-theme="dark"
+>
+  <div class="container d-flex flex-wrap align-items-center">
+    <div class="d-flex align-items-center">
+      <button
+        class="navbar-toggler d-inline-block me-2"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#categoriesCollapse"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <a
+        class="navbar-brand fw-bold me-5"
+        href="/?#products-list"
+        data-filter="all"
+        >All Categories</a
+      >
+      <ul
+        class="navbar-nav ms-auto mb-2 mb-lg-0 d-none d-lg-flex gap-lg-2 gap-xl-5"
+      >
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle active"
+            href="#"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            Products
+          </a>
+          <ul class="dropdown-menu">
+            <li>
+              <a class="dropdown-item" href="{% url 'index' %}#">Action</a>
+            </li>
+            <li>
+              <a class="dropdown-item" href="{% url 'index' %}#"
+                >Another action</a
+              >
+            </li>
+            <li><hr class="dropdown-divider" /></li>
+            <li>
+              <a class="dropdown-item" href="{% url 'index' %}#"
+                >Something else here</a
+              >
+            </li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="{% url 'index' %}#">Blog</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="{% url 'index' %}#">Contact</a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- nav-tabs: show only in lg -->
+    <ul
+      class="navbar-nav ms-auto mb-2 mb-lg-0 me-0 gap-lg-2 gap-xl-5 d-none d-lg-flex"
+    >
+      <li class="nav-item">
+        <a
+          class="nav-link text-uppercase active"
+          href="{% url 'index' %}#limited-sale"
+          >Limited Sale</a
+        >
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active" href="{% url 'index' %}#best-sellers-section"
+          >Best Seller</a
+        >
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active" href="{% url 'index' %}#new-arrivals"
+          >New Arrival</a
+        >
+      </li>
+    </ul>
+
+    <!-- toggle btn content -->
+    <div class="collapse w-100" id="categoriesCollapse">
+      <div class="bg-light p-4 mt-2 rounded shadow overflow-hidden">
+        <h6 class="text-dark fw-bold">Categories</h6>
+        <ul class="list-unstyled">
+          <li>
+            <a
+              href="/?category=sensors#products-list"
+              class="nav-link text-dark border-bottom"
+              >Sensors</a
+            >
+          </li>
+          <li>
+            <a
+              href="/?category=microcontroller#products-list"
+              class="nav-link text-dark border-bottom"
+              >Microcontrollers</a
+            >
+          </li>
+          <li>
+            <a
+              href="/?category=components#products-list"
+              class="nav-link text-dark border-bottom"
+              >Components</a
+            >
+          </li>
+          <li>
+            <a
+              href="/?category=modules#products-list"
+              class="nav-link text-dark border-bottom"
+              >Modules</a
+            >
+          </li>
+        </ul>
+
+        <!-- hide nav in lg  -->
+        <div class="d-lg-none border-top mt-3 pt-3">
+          <h6 class="text-dark fw-bold">Menu</h6>
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a
+                class="nav-link text-dark"
+                href="{% url 'index' %}#products-list"
+                >Products</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-dark" href="{% url 'index' %}#blog"
+                >Blog</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-dark" href="{% url 'index' %}#contact"
+                >Contact</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link text-dark"
+                href="{% url 'index' %}#limited-sale"
+                >Limited Sale</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link text-dark"
+                href="{% url 'index' %}#best-sellers-section"
+                >Best Seller</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
