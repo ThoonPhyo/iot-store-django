@@ -1,13 +1,11 @@
 # --- IoT Store Project: Setup & Run Commands ---
 
-# [Option 1] Using Pipenv
-# -----------------------
-pip install pipenv
-pipenv install
-pipenv shell
+### 1. Clone the Repository
 
+```bash
+git clone [https://github.com/ThoonPhyo/iot-store-django.git](https://github.com/ThoonPhyo/iot-store-django.git)
+cd iot-store-django
 
-# [Option 2] Using standard venv (Manual Setup)
 # -----------------------
 # 1. Create Virtual Environment
 python -m venv venv
@@ -35,4 +33,4 @@ python manage.py runserver
 # URL: http://127.0.0.1:8000/
 
 
-.\ngrok.exe http 8000
+
