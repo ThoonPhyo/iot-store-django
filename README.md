@@ -1,11 +1,5 @@
 # --- IoT Store Project: Setup & Run Commands ---
 
-### 1. Clone the Repository
-
-```bash
-git clone [https://github.com/ThoonPhyo/iot-store-django.git](https://github.com/ThoonPhyo/iot-store-django.git)
-cd iot-store-django
-
 # -----------------------
 # 1. Create Virtual Environment
 python -m venv venv
