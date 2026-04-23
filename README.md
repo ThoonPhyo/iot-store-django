@@ -1,4 +1,4 @@
-# --- IoT Store Project: Setup & Run Commands ---
+# --- IoT Store Project: Setup & Run Commands -----
 
 # -----------------------
 # 1. Create Virtual Environment
