@@ -28,7 +28,7 @@ DEBUG = True
 # iot_store/settings.py
 
 ALLOWED_HOSTS = [
-    'salaried-licorice-lived.ngrok-free.dev', # ဒီ link အသစ်လေးကို ထည့်ပေးပါ
+    'salaried-licorice-lived.ngrok-free.dev', 
     'localhost',
     '127.0.0.1',
 ]
@@ -134,7 +134,7 @@ MEDIA_URL = '/media/'
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
 
-# MEDIA_ROOT ကို သင့်ရဲ့ folder အခေါ်အဝေါ်အတိုင်း ညွှန်ပေးရပါမယ်
+# MEDIA_ROOT ကို folder အခေါ်အဝေါ်အတိုင်း ညွှန်ပေးရပါမယ်
 # အကယ်၍ 'product_images' folder က 'manage.py' နဲ့ တစ်တန်းတည်းမှာ ရှိနေရင်:
 MEDIA_ROOT = BASE_DIR
 

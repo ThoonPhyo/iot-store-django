@@ -3,7 +3,6 @@ from django.contrib.auth import views as auth_views
 from . import views
 
 urlpatterns = [
-    # ဒီမှာတင် ရပ်ရပါမယ်။ include('store.urls') ကို ထပ်မရေးရပါ။
     path('', views.index, name='index'),
     path('home/', views.index, name='index'),
     path('login/', auth_views.LoginView.as_view(template_name='store/login.html'), name='login'),

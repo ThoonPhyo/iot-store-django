@@ -162,8 +162,8 @@ header .custom-scroll::-webkit-scrollbar-thumb {
 .btn-cart-circle:hover {
   background-color: #fe624b !important;
   color: #ffffff !important;
-  transform: scale(1.1); /* Hover လုပ်ရင် နည်းနည်းလေး ကြီးလာတာက ပိုလှပါတယ် */
-  box-shadow: 0 4px 10px rgba(254, 98, 75, 0.3); /* အရိပ်ပါးပါးလေး ထည့်ပါ */
+  transform: scale(1.1); /* Hover လုပ်ရင် နည်းနည်းလေး ကြီးလာတာ*/
+  box-shadow: 0 4px 10px rgba(254, 98, 75, 0.3); /* အရိပ်ပါးပါးလေး  */
 }
 
 /* brands section */
@@ -192,7 +192,7 @@ header .custom-scroll::-webkit-scrollbar-thumb {
   height: 60px; /* ပိုကြီးတဲ့ input field */
   border: 1px solid darkgrey; /* နူးညံ့တဲ့ အရောင်နဲ့ အနည်းငယ်ထူတဲ့ border */
   border-radius: 25px; /* ပိုဝိုင်းတာက ပိုလှပါတယ် */
-  padding: 10px 20px; /* အတွင်း padding ကို ပိုကျယ်စေပြီး အသက်ရှူချောင်စေတယ် */
+  padding: 10px 20px; /* အတွင်း padding ကို ပိုကျယ်စေ */
   transition: all 0.3s ease;
 }
 

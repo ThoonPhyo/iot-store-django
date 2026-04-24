@@ -33,7 +33,7 @@ def index(request):
             total_quantity = user_cart.aggregate(total=Sum('quantity'))['total'] or 0
             cart_total = sum(item.quantity * item.product.price for item in user_cart)
 
-    # ၃။ Context - ဒီနေရာမှာ 'cart_items' ကို ထည့်ပေးရပါမယ်
+    # ၃။ Context - ဒီနေရာမှာ 'cart_items' ကို ထည့်ပေးရ
     context = {
         'products': products,
         'selected_category': category_name,

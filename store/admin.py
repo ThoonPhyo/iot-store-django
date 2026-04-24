@@ -3,7 +3,7 @@ from .models import Product, CartItem, BestSellers
 
 # ၁။ Product Admin: Name, Type, Price, Category တွေပြဖို့
 class ProductAdmin(admin.ModelAdmin):
-    # ဇယားမှာ ပြချင်တဲ့ column နာမည်တွေကို ဒီမှာ ထည့်ပါ
+    # ဇယားမှာ ပြချင်တဲ့ column နာမည်တွေကို ဒီမှာ ထည့်
     list_display = ('name', 'product_type', 'price', 'label') 
     list_filter = ('product_type', 'label') # ဘေးမှာ filter နဲ့ ရွေးကြည့်လို့ရအောင်
     search_fields = ('name',) # ပစ္စည်းနာမည်နဲ့ ရှာလို့ရအောင်
